@@ -3,6 +3,5 @@ tensorflow-cpu
 gunicorn
 pillow
 numpy
-opencv-python-headless
 streamlit
 efficientnet
