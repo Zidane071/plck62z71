@@ -1,6 +1,7 @@
 Leaf Desease Detection
 
 Ringkasan
+
 Disini kami membuat aplikasi web untuk mengetahui apakah daun tersebut sehat 
 atau tidak. Kami menggunakan Deep Learning yang mengambil gambar daun dan 
 memprediksi apakah daun tersebut sehat atau tidak.
