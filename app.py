@@ -7,8 +7,8 @@ import tensorflow as tf
 import efficientnet.tfkeras as efn
 
 # Title and Description
-st.title('Plant Disease Detection 🍁')
-st.write("Just Upload your Plant's Leaf Image and Get Predictions if Your Plant is Healthy or Not!")
+st.title('Leaf Deseases Detection 🍁')
+st.write("Cukup unggah gambar daun tanaman anda dan dapatkan prediksi Apakah Tanaman tersebut sehat atau tidak!")
 st.write("")
 
 
@@ -21,10 +21,10 @@ if gpus:
 model = tf.keras.models.load_model("model.h5")
 
 # Upload the image
-uploaded_file = st.file_uploader("Choose a Image file", type=["png", "jpg"])
+uploaded_file = st.file_uploader("Pilih file Gambar: (Dengan format png atau jpg)", type=["png", "jpg"])
 
 
-predictions_map = {0:"is healthy", 1:"has Multiple Diseases", 2:"has Rust", 3:"has Scab"}
+predictions_map = {0:"sehat", 1:"memiliki beberapa penyakit", 2:"memiliki bercak", 3:"memiliki keropeng"}
 
 if uploaded_file is not None:
 
@@ -43,10 +43,9 @@ if uploaded_file is not None:
 
     predictions = np.argmax(predictions_arr)
 
-    result_text = f"The plant leaf {predictions_map[predictions]} with {int(predictions_arr[0][predictions]*100)}% probability"
+    result_text = f"Daun tanaman {predictions_map[predictions]} dengan kemungkinan sebesar {int(predictions_arr[0][predictions]*100)}%"
 
     if predictions == 0:
         st.success(result_text)
     else:
         st.error(result_text)
-
